@@ -1,0 +1,11 @@
+xst -intstyle ise -ifn "C:/Users/whony/Desktop/Embedded/week7/xas.xst" -ofn "C:/Users/whony/Desktop/Embedded/week7/xas.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc das.ucf -p xc6slx9-tqg144-3 xas.ngc xas.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o xas_map.ncd xas.ngd xas.pcf 
+par -w -intstyle ise -ol high -mt off xas_map.ncd xas.ncd xas.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml xas.twx xas.ncd -o xas.twr xas.pcf -ucf das.ucf 
+xst -intstyle ise -ifn "C:/Users/whony/Desktop/Embedded/week7/xas.xst" -ofn "C:/Users/whony/Desktop/Embedded/week7/xas.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc das.ucf -p xc6slx9-tqg144-3 xas.ngc xas.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o xas_map.ncd xas.ngd xas.pcf 
+par -w -intstyle ise -ol high -mt off xas_map.ncd xas.ncd xas.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml xas.twx xas.ncd -o xas.twr xas.pcf -ucf das.ucf 
+bitgen -intstyle ise -f xas.ut xas.ncd 
